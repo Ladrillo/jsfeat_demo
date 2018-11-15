@@ -1,5 +1,6 @@
 window.onload = () => {
   const video = document.querySelector('#vid');
+  const canvas = document.querySelector('#canv');
 
   navigator.mediaDevices.getUserMedia({
     video: true,
@@ -9,4 +10,16 @@ window.onload = () => {
       video.srcObject = stream;
       video.play();
     });
+
+  const loop = (timestamp) => {
+    // do stuff
+    if (!timestamp || timestamp < 5000) {
+      console.log(timestamp);
+      document.write('|');
+    }
+
+    requestAnimationFrame(loop);
+  };
+
+  loop();
 };
