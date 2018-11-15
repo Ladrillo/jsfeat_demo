@@ -1,6 +1,7 @@
 window.onload = () => {
   const video = document.querySelector('#vid');
   const canvas = document.querySelector('#canv');
+  const ctx = canvas.getContext('2d');
 
   navigator.mediaDevices.getUserMedia({
     video: true,
@@ -13,9 +14,8 @@ window.onload = () => {
 
   const loop = (timestamp) => {
     // do stuff
-    if (!timestamp || timestamp < 5000) {
-      console.log(timestamp);
-      document.write('|');
+    if (!timestamp || timestamp < 15000) {
+      ctx.drawImage(video, 0, 0);
     }
 
     requestAnimationFrame(loop);
