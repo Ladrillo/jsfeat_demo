@@ -38,7 +38,6 @@ window.onload = () => {
     });
 
   const loop = (timestamp) => {
-    // do stuff
     if (!timestamp || timestamp < 15000) {
       ctx.drawImage(video, 0, 0);
     }
