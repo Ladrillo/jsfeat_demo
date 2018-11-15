@@ -43,6 +43,23 @@ window.onload = () => {
       ctx.drawImage(video, 0, 0);
     }
 
+    const result = detectFace(canvas);
+    console.log(result);
+
+    result.forEach(face => {
+      const { x, y, width, height } = face;
+
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + width, y);
+      ctx.lineTo(x + width, y + height);
+      ctx.lineTo(x, y + height);
+      ctx.lineTo(x, y);
+
+      ctx.strokeStyle = '#00FF00';
+      ctx.lineWidth = 5;
+      ctx.stroke();
+    });
     requestAnimationFrame(loop);
   };
 
